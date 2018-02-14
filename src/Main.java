@@ -42,15 +42,21 @@ public class Main {
             System.out.println("file not found");
         }
         //System.out.println("size: " + container.size());
-        //for (int i=0; i<container.size(); i++)
         System.out.println(container +  " ");
+    }
 
+
+    private static double averageTime(int sum){
+        return (double)sum/container.size();
     }
 
     public static void main (String args[]){
         readFile("test.txt");
-        //System.out.println(container.get(2));
+
         FCFS fcfs = new FCFS(container);
+        System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
+
+        SJF sjf = new SJF(container);
 
     }
 }

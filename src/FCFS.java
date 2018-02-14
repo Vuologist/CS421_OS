@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FCFS {
 
-    private List<Integer> timeList;
+    private final List<Integer> timeList;
     private int sum;
 
     public FCFS(List<Integer> container){

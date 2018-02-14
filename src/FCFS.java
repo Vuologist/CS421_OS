@@ -1,8 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class FCFS {
 
-    public FCFS(List<String> container){
+    List<Integer> timeList;
+
+    public FCFS(List<Integer> container){
+        timeList = new ArrayList<Integer>(container);
 
     }
 

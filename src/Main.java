@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static List<String> container;
+    private static List<Integer> container;
 
     private static void readFile(String fileName) {
         try{
@@ -16,25 +16,35 @@ public class Main {
                 System.out.println("file not found");
             }
 
-            container = new ArrayList<String>();
+            container = new ArrayList<Integer>();
             int counter = 1;
-
-            File file = new File (path.getFile());
+            File file = new File(path.getFile());
             Scanner sc = new Scanner(file);
 
             while (sc.hasNext()){
-                sc.useDelimiter("\n");
+                sc.useDelimiter("\n|\r");
+                //System.out.println(sc.nextLine());
+
                 if(counter%2 == 0) {
-                    container.add(sc.next());
-                    System.out.println("hit");
+                    String temp = sc.nextLine();
+                    //System.out.println(counter + " value: " + sc.nextLine());
+                    int num = Integer.parseInt(temp);
+                    //System.out.println(num);
+                    container.add(num);
+
                 }else {
-                    sc.next();
+                    //System.out.println(counter + " " + sc.nextLine());
+                    sc.nextLine();
                 }
                 counter++;
             }
         } catch (FileNotFoundException e){
             System.out.println("file not found");
         }
+        //System.out.println("size: " + container.size());
+        //for (int i=0; i<container.size(); i++)
+        System.out.println(container +  " ");
+
     }
 
     public static void main (String args[]){

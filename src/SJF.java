@@ -22,12 +22,12 @@ public class SJF {
 
     private void runSJFAlgorithm(){
         sum = 0;
-        for(int i = 0; i < sortedJobListMapByValue.size(); i++){
-            sum+=sortedJobListMapByValue.get(i);
-            System.out.println("Job " + (i+1) +
-                    "\t\tTime Taken: " + sortedJobListMapByValue.get(i) +
+        Set<String> key = sortedJobListMapByValue.keySet();
+
+        for(String k : key){
+            sum+=sortedJobListMapByValue.get(k);
+            System.out.println(k + "\t\tTime Taken: " + sortedJobListMapByValue.get(k) +
                     "\t\tTOTAL Time Taken: " + sum);
         }
     }
-
 }

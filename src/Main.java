@@ -28,20 +28,6 @@ public class Main {
                 int jobTime = Integer.parseInt(sc.nextLine());
 
                 container.put(jobTitle,jobTime);
-                /*
-                if(counter%2 == 0) {
-                    String temp = sc.nextLine();
-                    //System.out.println(counter + " value: " + sc.nextLine());
-                    int num = Integer.parseInt(temp);
-                    //System.out.println(num);
-                    container.add(num);
-
-                }else {
-                    //System.out.println(counter + " " + sc.nextLine());
-                    sc.nextLine();
-                }
-                counter++;
-                */
             }
         } catch (FileNotFoundException e){
             System.out.println("file not found");
@@ -58,11 +44,11 @@ public class Main {
     public static void main (String args[]){
         readFile("test.txt");
 
-        FCFS fcfs = new FCFS(container);
-        System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
+        //FCFS fcfs = new FCFS(container);
+        //System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
 
-        //SJF sjf = new SJF(container);
-        //System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
+        SJF sjf = new SJF(container);
+        System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
 
     }
 }

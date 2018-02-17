@@ -58,11 +58,11 @@ public class Main {
     public static void main (String args[]){
         readFile("test.txt");
 
-        //FCFS fcfs = new FCFS(container);
-        //System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
+        FCFS fcfs = new FCFS(container);
+        System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
 
-        SJF sjf = new SJF(container);
-        System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
+        //SJF sjf = new SJF(container);
+        //System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
 
     }
 }

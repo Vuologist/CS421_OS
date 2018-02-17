@@ -1,24 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class FCFS {
 
-    private final List<Integer> timeList;
+    private final Map<String,Integer> timeList;
     private int sum;
 
-    public FCFS(List<Integer> container){
-        timeList = new ArrayList<Integer>(container);
+    public FCFS(Map<String,Integer> container){
+        timeList = new LinkedHashMap<String,Integer>(container);
         runFCFSAlgorithm();
     }
 
     public int getSJFSum(){return sum;}
 
     private void runFCFSAlgorithm(){
-        sum = 0;
-        for(int i = 0; i < timeList.size(); i++){
-            sum+=timeList.get(i);
-            System.out.println("Job " + (i+1) +
-                                "\t\tTime Taken: " + timeList.get(i) +
+        Set<String> keys = timeList.keySet();
+        for(String k : keys){
+            sum+=timeList.get(k);
+            System.out.println(k + "\t\tTime Taken: " + timeList.get(k) +
                                 "\t\tTOTAL Time Taken: " + sum);
         }
     }

@@ -1,13 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
-    private static List<Integer> container;
+    private static Map<String,Integer> container;
 
     private static void readFile(String fileName) {
         try{
@@ -16,15 +16,19 @@ public class Main {
                 System.out.println("file not found");
             }
 
-            container = new ArrayList<Integer>();
-            int counter = 1;
+            container = new LinkedHashMap<String, Integer>();
+            //int counter = 1;
             File file = new File(path.getFile());
             Scanner sc = new Scanner(file);
 
             while (sc.hasNext()){
                 sc.useDelimiter("\n|\r");
                 //System.out.println(sc.nextLine());
+                String jobTitle = sc.nextLine();
+                int jobTime = Integer.parseInt(sc.nextLine());
 
+                container.put(jobTitle,jobTime);
+                /*
                 if(counter%2 == 0) {
                     String temp = sc.nextLine();
                     //System.out.println(counter + " value: " + sc.nextLine());
@@ -37,12 +41,13 @@ public class Main {
                     sc.nextLine();
                 }
                 counter++;
+                */
             }
         } catch (FileNotFoundException e){
             System.out.println("file not found");
         }
         //System.out.println("size: " + container.size());
-        System.out.println(container +  " ");
+        //System.out.println(container +  " ");
     }
 
 
@@ -57,6 +62,7 @@ public class Main {
         //System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
 
         SJF sjf = new SJF(container);
+        System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
 
     }
 }

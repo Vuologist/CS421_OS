@@ -31,8 +31,11 @@ public class RR {
                     jobList.put(k, jobList.get(k) - timeSlice);
                     sum+=(timeSlice - ((jobList.get(k)>= 0) ? 0 : (timeSlice-abs(jobList.get(k)))));
                     // (jobList.get(k) > 0 ? jobList.get(k) : 0) to zero out negatives
-                    System.out.println(k + "\t\tTime Remaining: " + (jobList.get(k))+
-                            "\t\tTOTAL Time Taken: " + sum);
+                    System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\t%s Time Remaining: %4d \t\tTOTAL Time Taken: %4d \n",
+                            k, (sum - ((jobList.get(k)>= 0) ? 2 : (timeSlice-abs(jobList.get(k))))), sum, k, jobList.get(k), sum);
+
+//                    System.out.println(k + "\t\tTime Remaining: " + (jobList.get(k))+
+//                            "\t\tTOTAL Time Taken: " + sum);
                 }
             }
 

@@ -47,12 +47,14 @@ public class Main {
         //FCFS fcfs = new FCFS(container);
         //System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
 
-        SJF sjf = new SJF(container);
-        System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
+        //SJF sjf = new SJF(container);
+        //System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
 
-        //RR rr = new RR(container, 3);
-        //System.out.println("\n" + "average Time for RR3: " + averageTime(rr.getRRSum()));
+        RR rr2 = new RR(container, 2);
+        System.out.println("\n" + "average Time for RR2: " + averageTime(rr2.getRRSum()));
 
+        //RR rr3 = new RR(container, 3);
+        //System.out.println("\n" + "average Time for RR2: " + averageTime(rr3.getRRSum()));
 
 
     }

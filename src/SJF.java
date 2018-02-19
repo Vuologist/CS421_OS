@@ -26,8 +26,13 @@ public class SJF {
 
         for(String k : key){
             sum+=sortedJobListMapByValue.get(k);
-            System.out.println(k + "\t\tTime Taken: " + sortedJobListMapByValue.get(k) +
-                    "\t\tTOTAL Time Taken: " + sum);
+
+            System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\tTime Taken: %4d \t\tTOTAL Time Taken: %4d \n",
+                    k, (sum-sortedJobListMapByValue.get(k)), sum, sortedJobListMapByValue.get(k), sum);
+
+
+//            System.out.println(k + "\t\tTime Taken: " + sortedJobListMapByValue.get(k) +
+//                    "\t\tTOTAL Time Taken: " + sum);
         }
     }
 }

@@ -38,12 +38,13 @@ public class Main {
     public static void main (String args[]){
         readFile("test.txt");
 
-        System.out.println("FCFS\n");
+        /*System.out.println("FCFS\n");
         FCFS fcfs = new FCFS(container);
-        fcfs.printFCFSAverages();
+        fcfs.printFCFSAverages();*/
 
-        //SJF sjf = new SJF(container);
-
+        System.out.println("SJF\n");
+        SJF sjf = new SJF(container);
+        sjf.printSJFAverages();
 
         //RR rr2 = new RR(container, 2);
 

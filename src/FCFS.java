@@ -37,27 +37,25 @@ public class FCFS {
 
     private void calculateFCFSAverages(){
         FCFSAverageProcessingTime();
-        FCFSTurnaroundTime();
+        FCFSAverageTurnaroundTime();
         FCFSAverageWaitingTime();
     }
 
-    public void FCFSAverageProcessingTime(){
+    private void FCFSAverageProcessingTime(){
         Set<String> keys = timeList.keySet();
         int processTime = 0;
         for(String k : keys){
             processTime+=timeList.get(k);
         }
         averageProcessingTime = (double)processTime/timeList.size();
-
     }
 
-    public void FCFSAverageWaitingTime(){
+    private void FCFSAverageWaitingTime(){
         averageWaitingTime = averageTurnaroundTime - averageProcessingTime;
     }
 
-    public void FCFSTurnaroundTime(){
+    private void FCFSAverageTurnaroundTime(){
         averageTurnaroundTime = (double)turnaroundTime/timeList.size();
-
     }
 
 }

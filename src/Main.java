@@ -42,14 +42,17 @@ public class Main {
         FCFS fcfs = new FCFS(container);
         fcfs.printFCFSAverages();*/
 
-        System.out.println("SJF\n");
-        SJF sjf = new SJF(container);
-        sjf.printSJFAverages();
+        //System.out.println("SJF\n");
+        //SJF sjf = new SJF(container);
+        //sjf.printSJFAverages();
 
-        //RR rr2 = new RR(container, 2);
+//        System.out.println("RR-2\n");
+//        RR rr2 = new RR(container, 2);
+//        rr2.printRRAverages();
 
-
-        //RR rr5 = new RR(container, 5);
+        System.out.println("RR-5\n");
+        RR rr5 = new RR(container, 5);
+        rr5.printRRAverages();
 
 
 

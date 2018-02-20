@@ -17,7 +17,6 @@ public class Main {
             }
 
             container = new LinkedHashMap<String, Integer>();
-            //int counter = 1;
             File file = new File(path.getFile());
             Scanner sc = new Scanner(file);
 
@@ -36,25 +35,21 @@ public class Main {
         //System.out.println(container +  " ");
     }
 
-
-    private static double averageTime(int sum){
-        return (double)sum/container.size();
-    }
-
     public static void main (String args[]){
         readFile("test.txt");
 
-        //FCFS fcfs = new FCFS(container);
-        //System.out.println("\n" + "average Time for SJF: " + averageTime(fcfs.getSJFSum()));
+        System.out.println("FCFS\n");
+        FCFS fcfs = new FCFS(container);
+        fcfs.printFCFSAverages();
 
         //SJF sjf = new SJF(container);
-        //System.out.println("\n" + "average Time for SJF: " + averageTime(sjf.getSJFSum()));
 
-        RR rr2 = new RR(container, 2);
-        System.out.println("\n" + "average Time for RR2: " + averageTime(rr2.getRRSum()));
 
-        //RR rr3 = new RR(container, 3);
-        //System.out.println("\n" + "average Time for RR2: " + averageTime(rr3.getRRSum()));
+        //RR rr2 = new RR(container, 2);
+
+
+        //RR rr5 = new RR(container, 5);
+
 
 
     }

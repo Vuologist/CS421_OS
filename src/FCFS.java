@@ -5,28 +5,59 @@ import java.util.Set;
 public class FCFS {
 
     private final Map<String,Integer> timeList;
-    private int sum;
+    private int turnaroundTime;
+    private double averageTurnaroundTime;
+    private double averageProcessingTime;
+    private double averageWaitingTime;
 
     public FCFS(Map<String,Integer> container){
         timeList = new LinkedHashMap<String,Integer>(container);
         runFCFSAlgorithm();
     }
 
-    public int getSJFSum(){return sum;}
-
     private void runFCFSAlgorithm(){
         Set<String> keys = timeList.keySet();
+        int processTimePrint = 0;
         for(String k : keys){
-            sum+=timeList.get(k);
+            processTimePrint+=timeList.get(k);
+            turnaroundTime+=processTimePrint;
 
-            System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\tTime Taken: %4d \t\tTOTAL Time Taken: %4d \n",
-                                k, (sum-timeList.get(k)), sum, timeList.get(k), sum);
-//            System.out.println(k + "\t\tStart Time: " + (sum-timeList.get(k)) +
-//                            "\t\tEnd Time: " + sum +
-//                            "\t\tTime Taken: " + timeList.get(k) +
-//                            "\t\tTOTAL Time Taken: " + sum);
+            System.out.printf("%s \t\tStart Time: %3d \t\tEnd Time: %3d \t\tCompletion Time of %-6s: %3d \n",
+                                k, (processTimePrint-timeList.get(k)), processTimePrint, k, processTimePrint);
         }
+        calculateFCFSAverages();
+        System.out.println();
     }
 
+    public void printFCFSAverages(){
+        System.out.println("FCFS Average Processing Time (APT): " + averageProcessingTime);
+        System.out.println("FCFS Average Waiting Time (AWT): " + averageWaitingTime);
+        System.out.println("FCFS Average Turnaround Time(ATT): " + averageTurnaroundTime);
+    }
+
+    private void calculateFCFSAverages(){
+        FCFSAverageProcessingTime();
+        FCFSTurnaroundTime();
+        FCFSAverageWaitingTime();
+    }
+
+    public void FCFSAverageProcessingTime(){
+        Set<String> keys = timeList.keySet();
+        int processTime = 0;
+        for(String k : keys){
+            processTime+=timeList.get(k);
+        }
+        averageProcessingTime = (double)processTime/timeList.size();
+
+    }
+
+    public void FCFSAverageWaitingTime(){
+        averageWaitingTime = averageTurnaroundTime - averageProcessingTime;
+    }
+
+    public void FCFSTurnaroundTime(){
+        averageTurnaroundTime = (double)turnaroundTime/timeList.size();
+
+    }
 
 }

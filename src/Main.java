@@ -38,19 +38,19 @@ public class Main {
     public static void main (String args[]){
         readFile("test.txt");
 
-        /*System.out.println("FCFS\n");
+        System.out.println("\nFCFS\n");
         FCFS fcfs = new FCFS(container);
-        fcfs.printFCFSAverages();*/
+        fcfs.printFCFSAverages();
 
-        //System.out.println("SJF\n");
-        //SJF sjf = new SJF(container);
-        //sjf.printSJFAverages();
+        System.out.println("\nSJF\n");
+        SJF sjf = new SJF(container);
+        sjf.printSJFAverages();
 
-//        System.out.println("RR-2\n");
-//        RR rr2 = new RR(container, 2);
-//        rr2.printRRAverages();
+        System.out.println("\nRR-2\n");
+        RR rr2 = new RR(container, 2);
+        rr2.printRRAverages();
 
-        System.out.println("RR-5\n");
+        System.out.println("\nRR-5\n");
         RR rr5 = new RR(container, 5);
         rr5.printRRAverages();
 

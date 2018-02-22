@@ -57,5 +57,4 @@ public class FCFS {
     private void FCFSAverageTurnaroundTime(){
         averageTurnaroundTime = (double)turnaroundTime/timeList.size();
     }
-
 }

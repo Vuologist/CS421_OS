@@ -1,7 +1,6 @@
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-import static java.lang.Math.abs;
 
 public class RR {
 
@@ -68,7 +67,7 @@ public class RR {
     }
 
     private void calculateRRAverages(){
-        //RRAverageProcessingTime();
+        //RRAverageProcessingTime(); - has to be calculated first or else original value overwritten
         RRAverageTurnaroundTime();
         RRAverageWaitingTime();
     }
@@ -89,5 +88,4 @@ public class RR {
     private void RRAverageTurnaroundTime(){
         averageTurnaroundTime = (double)turnaroundTime/jobList.size();
     }
-
 }

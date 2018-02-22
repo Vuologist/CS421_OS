@@ -46,14 +46,13 @@ public class Main {
         SJF sjf = new SJF(container);
         sjf.printSJFAverages();
 
-        System.out.println("\nRound Robin - 2\n");
+        System.out.println("\n---Round Robin - 2---\n");
         RR rr2 = new RR(container, 2);
         rr2.printRRAverages();
 
-        System.out.println("\nRound Robin - 5\n");
+        System.out.println("\n---Round Robin - 5---\n");
         RR rr5 = new RR(container, 5);
         rr5.printRRAverages();
-
     }
 
     private static void test2(){
@@ -67,18 +66,18 @@ public class Main {
         SJF sjf = new SJF(container);
         sjf.printSJFAverages();
 
-        System.out.println("\nRound Robin - 2\n");
+        System.out.println("\n---Round Robin - 2---\n");
         RR rr2 = new RR(container, 2);
         rr2.printRRAverages();
 
-        System.out.println("\nRound Robin - 5\n");
+        System.out.println("\n---Round Robin - 5---\n");
         RR rr5 = new RR(container, 5);
         rr5.printRRAverages();
-
     }
+
     private static void test3(){
         readFile("testdata3.txt");
-        System.out.println("**********TestData3**********\n");
+        System.out.println("\n**********TestData3**********\n");
         System.out.println("---First Come First Server---\n");
         FCFS fcfs = new FCFS(container);
         fcfs.printFCFSAverages();
@@ -87,16 +86,17 @@ public class Main {
         SJF sjf = new SJF(container);
         sjf.printSJFAverages();
 
-        System.out.println("\nRound Robin - 2\n");
+        System.out.println("\n---Round Robin - 2---\n");
         RR rr2 = new RR(container, 2);
         rr2.printRRAverages();
 
-        System.out.println("\nRound Robin - 5\n");
+        System.out.println("\n---Round Robin - 5---\n");
         RR rr5 = new RR(container, 5);
         rr5.printRRAverages();
     }
 
     public static void main (String args[]){
+        System.out.println("The unit of all times are in ms.");
         test1();
         test2();
         test3();

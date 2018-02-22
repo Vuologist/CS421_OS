@@ -26,5 +26,4 @@ public class SJFObjects implements Comparable{
     public String toString(){
         return "[" + job + "," + time + "]";
     }
-
 }

@@ -35,26 +35,70 @@ public class Main {
         //System.out.println(container +  " ");
     }
 
-    public static void main (String args[]){
-        readFile("test.txt");
-
-        System.out.println("\nFCFS\n");
+    private static void test1(){
+        readFile("testdata1.txt");
+        System.out.println("\n**********TestData1**********\n");
+        System.out.println("---First Come First Server---\n");
         FCFS fcfs = new FCFS(container);
         fcfs.printFCFSAverages();
 
-        System.out.println("\nSJF\n");
+        System.out.println("\n---Shortest Job First---\n");
         SJF sjf = new SJF(container);
         sjf.printSJFAverages();
 
-        System.out.println("\nRR-2\n");
+        System.out.println("\nRound Robin - 2\n");
         RR rr2 = new RR(container, 2);
         rr2.printRRAverages();
 
-        System.out.println("\nRR-5\n");
+        System.out.println("\nRound Robin - 5\n");
         RR rr5 = new RR(container, 5);
         rr5.printRRAverages();
 
+    }
 
+    private static void test2(){
+        readFile("testdata2.txt");
+        System.out.println("\n**********TestData2**********\n");
+        System.out.println("---First Come First Server---\n");
+        FCFS fcfs = new FCFS(container);
+        fcfs.printFCFSAverages();
 
+        System.out.println("\n---Shortest Job First---\n");
+        SJF sjf = new SJF(container);
+        sjf.printSJFAverages();
+
+        System.out.println("\nRound Robin - 2\n");
+        RR rr2 = new RR(container, 2);
+        rr2.printRRAverages();
+
+        System.out.println("\nRound Robin - 5\n");
+        RR rr5 = new RR(container, 5);
+        rr5.printRRAverages();
+
+    }
+    private static void test3(){
+        readFile("testdata3.txt");
+        System.out.println("**********TestData3**********\n");
+        System.out.println("---First Come First Server---\n");
+        FCFS fcfs = new FCFS(container);
+        fcfs.printFCFSAverages();
+
+        System.out.println("\n---Shortest Job First---\n");
+        SJF sjf = new SJF(container);
+        sjf.printSJFAverages();
+
+        System.out.println("\nRound Robin - 2\n");
+        RR rr2 = new RR(container, 2);
+        rr2.printRRAverages();
+
+        System.out.println("\nRound Robin - 5\n");
+        RR rr5 = new RR(container, 5);
+        rr5.printRRAverages();
+    }
+
+    public static void main (String args[]){
+        test1();
+        test2();
+        test3();
     }
 }

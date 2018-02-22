@@ -13,7 +13,7 @@ public class SJF {
 
     public SJF(Map<String,Integer> container){
         jobList = new LinkedHashMap<>(container);
-        System.out.println("constructor: " + jobList);
+        //System.out.println("constructor: " + jobList);
         sortJobListMapByValue();
         runSJFAlgorithm();
     }
@@ -21,10 +21,12 @@ public class SJF {
     private void sortJobListMapByValue(){
         sortedJobListMapByValue = new TreeMap<>(new SJFValueComparator(jobList));
         sortedJobListMapByValue.putAll(jobList);
-        System.out.println("sorted: " + sortedJobListMapByValue);
+        //System.out.println("sorted: " + sortedJobListMapByValue);
     }
 
     private void runSJFAlgorithm(){
+        //set throw out duplicates, and 5 is a duplicate
+        //might just want to sort, run fcfs, and then access a hash table for job names
         Set<String> key = sortedJobListMapByValue.keySet();
         int processTimePrint = 0;
         turnaroundTime = 0;

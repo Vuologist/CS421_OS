@@ -33,8 +33,8 @@ public class RR {
 
                     processTime+=((jobList.get(k) >= timeSlice) ? timeSlice :jobList.get(k));
                     // (jobList.get(k)-timeSlice > 0 ? jobList.get(k)-timeSlice : 0) to zero out negatives
-                    System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\t%s Time Remaining: %4d",
-                            k, (processTime - ((jobList.get(k) >= timeSlice) ? timeSlice :jobList.get(k))), processTime, k, (jobList.get(k)-timeSlice > 0 ? jobList.get(k)-timeSlice : 0));
+                    System.out.printf("%s \tStart Time: %4d \tEnd Time: %4d \tTime Remaining: %4d",
+                            k, (processTime - ((jobList.get(k) >= timeSlice) ? timeSlice :jobList.get(k))), processTime, (jobList.get(k)-timeSlice > 0 ? jobList.get(k)-timeSlice : 0));
 
                     if(jobList.get(k)-timeSlice<=0) {
                         //System.out.print("\t\t" + turnaroundTime + " + " + processTime);

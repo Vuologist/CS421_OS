@@ -32,7 +32,7 @@ public class FCFS {
     public void printFCFSAverages(){
         System.out.println("FCFS Average Processing Time (APT): " + averageProcessingTime);
         System.out.println("FCFS Average Waiting Time (AWT): " + averageWaitingTime);
-        System.out.println("FCFS Average Turnaround Time(ATT): " + averageTurnaroundTime);
+        System.out.println("FCFS Average Turnaround Time (ATT): " + averageTurnaroundTime);
     }
 
     private void calculateFCFSAverages(){

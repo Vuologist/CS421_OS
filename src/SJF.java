@@ -1,43 +1,49 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class SJF {
-    private final Map<String, Integer> jobList;
-    private Map<String, Integer> sortedJobListMapByValue;
+    private final List<SJFObjects> jobList;
+    //private Map<String, Integer> sortedJobListMapByValue;
     private int turnaroundTime;
     private double averageTurnaroundTime;
     private double averageProcessingTime;
     private double averageWaitingTime;
 
     public SJF(Map<String,Integer> container){
-        jobList = new LinkedHashMap<>(container);
+        jobList = new ArrayList<>();
+
+        for(Map.Entry<String,Integer> entry: container.entrySet()){
+            jobList.add(new SJFObjects(entry.getKey(),entry.getValue()));
+        }
         //System.out.println("constructor: " + jobList);
-        sortJobListMapByValue();
+        Collections.sort(jobList);
+        //System.out.println("sorted" + jobList);
         runSJFAlgorithm();
     }
 
-    private void sortJobListMapByValue(){
-        sortedJobListMapByValue = new TreeMap<>(new SJFValueComparator(jobList));
-        sortedJobListMapByValue.putAll(jobList);
-        //System.out.println("sorted: " + sortedJobListMapByValue);
-    }
 
     private void runSJFAlgorithm(){
         //set throw out duplicates, and 5 is a duplicate
         //might just want to sort, run fcfs, and then access a hash table for job names
-        Set<String> key = sortedJobListMapByValue.keySet();
+        //Set<String> key = sortedJobListMapByValue.keySet();
         int processTimePrint = 0;
         turnaroundTime = 0;
 
-        for(String k : key){
+        for(SJFObjects a : jobList){
+            processTimePrint+=a.getTime();
+            turnaroundTime+=processTimePrint;
+
+            System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\tCompletion Time of %-6s: %4d \n",
+                    a.getJob(), (processTimePrint-a.getTime()), processTimePrint, a.getJob(), processTimePrint);
+        }
+
+
+        /*for(String k : key){
             processTimePrint+=sortedJobListMapByValue.get(k);
             turnaroundTime+=processTimePrint;
 
             System.out.printf("%s \tStart Time: %4d \t\tEnd Time: %4d \t\tCompletion Time of %-6s: %4d \n",
                     k, (processTimePrint-sortedJobListMapByValue.get(k)), processTimePrint, k, processTimePrint);
-        }
+        }*/
         calculateSJFAverages();
         System.out.println();
     }
@@ -55,12 +61,17 @@ public class SJF {
     }
 
     private void SJFAverageProcessingTime(){
-        Set<String> keys = sortedJobListMapByValue.keySet();
+        //Set<String> keys = sortedJobListMapByValue.keySet();
         int processTime = 0;
-        for(String k : keys){
-            processTime+=sortedJobListMapByValue.get(k);
+
+        for(SJFObjects a : jobList){
+            processTime+=a.getTime();
         }
-        averageProcessingTime = (double)processTime/sortedJobListMapByValue.size();
+
+        /*for(String k : keys){
+            processTime+=sortedJobListMapByValue.get(k);
+        }*/
+        averageProcessingTime = (double)processTime/jobList.size();
     }
 
     private void SJFAverageWaitingTime(){
@@ -68,7 +79,7 @@ public class SJF {
     }
 
     private void SJFAverageTurnaroundTime(){
-        averageTurnaroundTime = (double)turnaroundTime/sortedJobListMapByValue.size();
+        averageTurnaroundTime = (double)turnaroundTime/jobList.size();
     }
 
 }
